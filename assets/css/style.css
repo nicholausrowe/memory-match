@@ -1,1 +1,71 @@
+body {
+    height: 100vh;
+}
 
+header {
+    justify-content: center;
+    align-content: center;
+    height: 20%;
+    background: lightslategray;
+    margin: 0;
+    border-style: solid;
+    border-color: red;
+    border-width: 5px;
+}
+
+.heading {
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.stats {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+    width: 15%;
+    background: lightcyan;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.statDiv {
+    justify-content: center;
+    border-style: solid;
+    border-color: red;
+    border-width: 5px;
+    height: 10%;
+    width: 80%;
+    background: lightgrey;
+    align-items: center;
+
+}
+
+main {
+    border-style: solid;
+    border-color: purple;
+    border-width: 10px;
+    width: 80%;
+    background: lightseagreen;
+    display: inline-block;
+}
+
+.container {
+    align-self: center;
+    justify-content: center;
+    vertical-align: center;
+    align-content: center;
+    border-style: solid;
+    border-color: green;
+    border-width: 10px;
+    width: 98%;
+}
+
+.card {
+    margin: 10px;
+    height: 160px;
+    width: 120px;
+    background: blue;
+    display: inline-block;
+}
