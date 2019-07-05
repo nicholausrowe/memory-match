@@ -52,10 +52,7 @@ main {
 }
 
 .container {
-    align-self: center;
-    justify-content: center;
-    vertical-align: center;
-    align-content: center;
+    display: flex;
     border-style: solid;
     border-color: green;
     border-width: 10px;
@@ -63,9 +60,54 @@ main {
 }
 
 .card {
-    margin: 10px;
+    position: relative;
+    background-image: url(../images/brett.jpg);
+    background-position: center;
+    background-size: cover;
     height: 160px;
     width: 120px;
-    background: blue;
-    display: inline-block;
+}
+
+
+
+
+
+.card-back, .dan, .brett {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+}
+
+.card-back {
+    background-image: url(../images/card-back.jpg);
+    z-index: 1;
+}
+
+.dan {
+    background-image: url(../images/dan.jpg);
+}
+
+.brett {
+    background-image: url(../images/brett.jpg);
+}
+
+
+
+
+
+
+
+
+
+
+
+/*keep' HIDDEN selector at the bottom! */
+
+.hidden {
+    display:none;
 }
