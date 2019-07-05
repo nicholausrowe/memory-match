@@ -1,1 +1,113 @@
+body {
+    height: 100vh;
+}
 
+header {
+    justify-content: center;
+    align-content: center;
+    height: 20%;
+    background: lightslategray;
+    margin: 0;
+    border-style: solid;
+    border-color: red;
+    border-width: 5px;
+}
+
+.heading {
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.stats {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+    width: 15%;
+    background: lightcyan;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.statDiv {
+    justify-content: center;
+    border-style: solid;
+    border-color: red;
+    border-width: 5px;
+    height: 10%;
+    width: 80%;
+    background: lightgrey;
+    align-items: center;
+
+}
+
+main {
+    border-style: solid;
+    border-color: purple;
+    border-width: 10px;
+    width: 80%;
+    background: lightseagreen;
+    display: inline-block;
+}
+
+.container {
+    display: flex;
+    border-style: solid;
+    border-color: green;
+    border-width: 10px;
+    width: 98%;
+}
+
+.card {
+    position: relative;
+    background-image: url(../images/brett.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 160px;
+    width: 120px;
+}
+
+
+
+
+
+.card-back, .dan, .brett {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+}
+
+.card-back {
+    background-image: url(../images/card-back.jpg);
+    z-index: 1;
+}
+
+.dan {
+    background-image: url(../images/dan.jpg);
+}
+
+.brett {
+    background-image: url(../images/brett.jpg);
+}
+
+
+
+
+
+
+
+
+
+
+
+/*keep' HIDDEN selector at the bottom! */
+
+.hidden {
+    display:none;
+}
