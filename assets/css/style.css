@@ -69,7 +69,7 @@ main {
 
 
 
-.card-back, .dan, .brett, .cody {
+.back, .dan, .brett, .cody {
     position: absolute;
     left: 0;
     right: 0;
@@ -79,7 +79,7 @@ main {
     width: 100%;
 }
 
-.card-back {
+.back {
     background-image: url(../images/card-back.jpg);
 }
 
