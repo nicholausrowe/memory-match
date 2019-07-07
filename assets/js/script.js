@@ -6,6 +6,7 @@ function initializeApp() {
 var firstCardClicked = null;
 var secondCardClicked = null;
 var matches = null;
+var max_matches = 2;
 
 
 function handleCardClick(event) {
@@ -27,21 +28,23 @@ function handleCardClick(event) {
             console.log("MATCH");
             matches++
             console.log(matches);
+            firstCardClicked = null;
+            secondCardClicked = null;
         } else {
             console.log("NO MATCH");
-            var unhide1 = $(firstCardClicked).find('.back')
-            setTimeout(function () { (unhide1).removeClass("hidden");}, 1500);
-            var unhide2 = $(secondCardClicked).find('.back')
-            setTimeout(function () { (unhide2).removeClass("hidden"); }, 1500);
+            var unhide = $(firstCardClicked).add(secondCardClicked).find('.back')
+            setTimeout(function () { (unhide).removeClass("hidden");}, 1500);
+
+            firstCardClicked = null;
+            secondCardClicked = null;
         }
     }
+    if (matches === max_matches) {
+        var modalShadow = $('.modal-shadow');
+        modalShadow.removeClass('hidden');
+
+        var modalButton = $('.modal')
+
+        modalButton.append('<button class=".button">BUTTON TEXT</button>');
+    }
 }
-
-// $(selector).removeClass(classname)
-
-// setTimeout(function () { alert("Hello"); }, 3000);
-
-// function unhide() {
-//     var element = document.getElementById("myDIV");
-//     element.classList.remove("mystyle");
-// }
