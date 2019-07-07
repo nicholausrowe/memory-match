@@ -2,6 +2,9 @@ $(document).ready(initializeApp);
 function initializeApp() {
     $(".card").on("click", handleCardClick);
 }
+function toggleModal() {
+    $('.modal-shadow').toggleClass('hidden');
+}
 
 var firstCardClicked = null;
 var secondCardClicked = null;
@@ -40,11 +43,12 @@ function handleCardClick(event) {
         }
     }
     if (matches === max_matches) {
-        var modalShadow = $('.modal-shadow');
-        modalShadow.removeClass('hidden');
+        $('.modal-shadow').toggleClass('hidden');
+        $('.modal').append('<button class="button">OH SHIT SON<br>YOU WON!</button>');
+        $('.button').addEventListener("click", killModal);
 
-        var modalButton = $('.modal')
-
-        modalButton.append('<button class=".button">BUTTON TEXT</button>');
     }
+
+
 }
+    // var killModal = modalShadow.addClass('hidden');
