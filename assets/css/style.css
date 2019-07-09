@@ -52,11 +52,16 @@ main {
 }
 
 .container {
-    display: flex;
+    display: grid;
+    padding: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-gap: 1rem;
+
     border-style: solid;
     border-color: green;
     border-width: 10px;
     width: 98%;
+    position: relative;
 }
 
 .card {
@@ -66,10 +71,7 @@ main {
 }
 
 
-
-
-
-.back, .dan, .brett, .cody {
+.back, .bill, .brett, .cody, .dan, .kobe, .scott, .tim-d, .tim-h, .tj {
     position: absolute;
     left: 0;
     right: 0;
@@ -83,8 +85,8 @@ main {
     background-image: url(../images/card-back.jpg);
 }
 
-.dan {
-    background-image: url(../images/dan.jpg);
+.bill {
+    background-image: url(../images/bill.jpg);
 }
 
 .brett {
@@ -95,6 +97,29 @@ main {
     background-image: url(../images/cody.jpg);
 }
 
+.dan {
+    background-image: url(../images/dan.jpg);
+}
+
+.kobe {
+    background-image: url(../images/kobe.jpg);
+}
+
+.scott {
+    background-image: url(../images/scott.jpg);
+}
+
+.tim-d {
+    background-image: url(../images/tim-d.jpg);
+}
+
+.tim-h {
+    background-image: url(../images/tim-h.jpg);
+}
+
+.tj {
+    background-image: url(../images/tj.jpg);
+}
 
 /* .modalContainer {
     height: 100vh;
@@ -107,7 +132,7 @@ main {
     position: fixed;
     height: 100vh;
     width: 100vw;
-    background-color: rgba(0,0,0,.4);;
+    background-color: rgba(0,0,0,.4);
     left: 0;
     top: 0;
     z-index: 0;
@@ -126,16 +151,14 @@ main {
     top: 50%;
     left: 50%;
     display: flex;
-
     font-family: Helvetica, Arial, sans-serif;
 	font-size: 13px;
 }
 
 .modal-message{
     font-family: Arial, sans-serif;
-	background: #ddd;
-
-  margin: auto;
+    background: #ddd;
+    margin: auto;
 }
 
 
@@ -154,7 +177,8 @@ main {
 	text-decoration: none;
 	text-shadow: 0 1px 0 #fff;
 	cursor: pointer;
-	transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    outline: none;
   &:hover {
     border-color: #999;
     box-shadow: 0 1px 3px rgba(0,0,0,0.25);
