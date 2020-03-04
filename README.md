@@ -2,7 +2,7 @@
 
 ## What are the specifications for the app?
 <details>
-<summary> &#8592; Click arrow for details</summary>
+<!-- <summary> &#8592; Click arrow for details</summary> -->
 
 1. Memory match is a matching game in which a player attempts to match the images contained on "playing cards".
 2. There are a total of 18 cards:
