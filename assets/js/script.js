@@ -1,9 +1,48 @@
 $(document).ready(initializeApp);
+
 function initializeApp() {
-    $(".card").on("click", handleCardClick);
+  createBoard(albums);
+  $(".card").on("click", handleCardClick);
 }
-function toggleModal() {
-    $('.modal-shadow').toggleClass('hidden');
+
+function createCard(obj) {
+  var board = $('.container');
+  var card = $('<div>').addClass('card');
+  var front = $('<img>').addClass('front face').attr(obj);
+  var back = $('<img>', {
+    class: 'back face',
+    src: "assets/images/edges-unselected-200.jpg",
+    alt: "Unselected Card"
+  });
+  card.append(front);
+  card.append(back);
+
+  board.append(card);
+}
+
+function createBoard(albums) {
+  albums = albumShuffle(albums);
+  var selectedAlbums = albums.slice(0,9);
+  var selectedPairs = selectedAlbums.concat(selectedAlbums);
+  var shuffledPairs = albumShuffle(selectedPairs);
+  for (let i = 0; i < shuffledPairs.length; i++) {
+    createCard(shuffledPairs[i]);
+  }
+}
+
+
+function albumShuffle(array) {
+  var currentIndex = array.length, tempVal, randomIndex;
+
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -=1;
+
+    tempVal = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = tempVal;
+  }
+  return array;
 }
 
 var firstCardClicked = null;
@@ -18,38 +57,40 @@ var currentlyFlipped = null;
 var displayStats;
 
 function calculateAccuracy() {
-    accuracy = matches / attempts * 100;
-    if (attempts === 0) {
-        accuracy = 0;
-    }
+  accuracy = matches / attempts * 100;
+  if (attempts === 0) {
+      accuracy = 0;
+  }
 }
 
 function displayStats() {
-    calculateAccuracy();
-    $('.attemptsNum').text(attempts);
-    $('.accuracyPerc').text(accuracy.toFixed(0) + "%");
-    $('.gamesNum').text(games_played);
+  calculateAccuracy();
+  $('.attemptsNum').text(attempts);
+  $('.accuracyPerc').text(accuracy.toFixed(0) + "%");
+  $('.gamesNum').text(games_played);
 }
 
-function resetStats() {
-    matches = 0;
-    attempts = 0;
-    accuracy = 0;
-    displayStats();
-    $('.modal-shadow').addClass('hidden');
-    $('.modal').children('button').remove();
-    $('.back').removeClass('hidden');
-    console.log("IT WORKS");
+function resetBoard() {
+  $('.container').empty();
+  initializeApp();
+  matches = 0;
+  attempts = 0;
+  accuracy = 0;
+  displayStats();
+
+  $('.modal-shadow').addClass('hidden');
+  $('.modal').children('button').remove();
+  $('.back').removeClass('hidden');
 }
 
 
 function handleCardClick(event) {
-    // debugger;
     if (currentlyFlipped === 2){
         return;
     }
+
     var clickedCard = $(event.currentTarget).find('.back');
-    // }
+
 
     if (firstCardClicked == null) {
         firstCardClicked = $(event.currentTarget);
@@ -61,32 +102,24 @@ function handleCardClick(event) {
         currentlyFlipped += 1;
 
         if (secondCardClicked != null) {
-            // debugger;
             attempts++;
-
-            // $('.accuracyPerc').text(accuracy.toFixed(2) + "%");
-            // $('.attemptsNum').text(attempts);
-
         }
 
+        var firstCardSource = $(firstCardClicked).find('.front').attr('src');
 
-        var firstCardSource = $(firstCardClicked).find('.front').css('background-image');
-        console.log(firstCardSource);
-
-        var secondCardSource = $(secondCardClicked).find('.front').css('background-image');
-        console.log(secondCardSource);
+        var secondCardSource = $(secondCardClicked).find('.front').attr('src');
 
         if (firstCardSource === secondCardSource) {
-            console.log("MATCH");
             matches++
             displayStats();
-            console.log(matches);
+
             currentlyFlipped = 0;
             firstCardClicked = null;
             secondCardClicked = null;
         } else {
             console.log("NO MATCH");
             displayStats();
+
             var unhide = $(firstCardClicked).add(secondCardClicked).find('.back')
             setTimeout(function () {
                 currentlyFlipped = 0;
@@ -94,16 +127,16 @@ function handleCardClick(event) {
 
             firstCardClicked = null;
             secondCardClicked = null;
-
         }
-
-}
+    }
     if (matches === max_matches) {
         games_played++;
         $('.modal-shadow').toggleClass('hidden');
-        $('.modal-shadow').on("click", resetStats);
-        $('.modal').append('<button class="button">OH SHIT SON<br>YOU WON!</button>');
-        $('.button').on("click", resetStats);
+        $('.modal-shadow').on("click", resetBoard);
+
+
+      $('.modal').on("click", resetBoard);
+
+
     }
 }
-    // var killModal = modalShadow.addClass('hidden');
