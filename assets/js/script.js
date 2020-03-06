@@ -81,6 +81,8 @@ function resetBoard() {
   $('.modal-shadow').addClass('hidden');
   $('.modal').children('button').remove();
   $('.back').removeClass('hidden');
+  $('header').removeClass('blur');
+  $('.content').removeClass('blur');
 }
 
 
@@ -132,10 +134,12 @@ function handleCardClick(event) {
     if (matches === max_matches) {
         games_played++;
         $('.modal-shadow').toggleClass('hidden');
+
+      $('header').toggleClass('blur');
+      $('.content').toggleClass('blur');
+
+
         $('.modal-shadow').on("click", resetBoard);
-
-
-      $('.modal').on("click", resetBoard);
 
 
     }

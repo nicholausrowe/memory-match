@@ -20,7 +20,9 @@ body {
 	justify-content: center;
 	align-items: center;
 	align-content: center;
+
 }
+
 
 header {
 	height: 16vh;
@@ -49,6 +51,7 @@ header {
 
 main {
 	display: flex;
+
 }
 
 .container {
@@ -63,6 +66,7 @@ main {
 	padding: .3%;
 	margin-left: 6.4vw;
 	margin-bottom: 11vh;
+
 
 }
 .card {
@@ -107,7 +111,6 @@ aside {
 
 
 .turntable {
-	z-index: -1;
 	width:23.5vw;
 }
 
@@ -120,45 +123,45 @@ aside {
     background-color: rgba(0,0,0,.4);
     left: 0;
     top: 0;
-    z-index: 0;
+		z-index: 1;
 }
 
 .modal {
 	position: fixed;
-	width: 50%;
-	/* height: 50%; */
-	padding-top: 10%;
+	width: 30em;
+	height: 22em;
 	text-align: center;
-	z-index: 2;
 	transform: translate(-50%, -50%);
 	top: 50%;
 	left: 50%;
 	background: white;
-	font-family: "Akzidenz-Grotesk H1", Helvetica, Arial, serif;
-	font-weight: 100;
-	font-size: 20px;
-	text-align: center;
-	text-transform: uppercase;
 }
 
 h2 {
-	margin: 20px;
-	z-index: 5;
+	margin: 8%;
+	font-family: "Akzidenz-Grotesk H1", Helvetica, Arial, serif;
+	font-weight: 100;
+	font-size: 2rem;
+	text-align: center;
+	text-transform: uppercase;
 }
 
 .hidden {
     display: none;
 }
 
+.blur {
+	filter:blur(5px);
+}
+
+
 .video {
-	margin: 50px;
 	width: 80%;
 	height: 80%;
-	z-index: 1;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+	top: 60%;
+	right: 50%;
+	transform: translate(50%, -50%);
 }
 
 
