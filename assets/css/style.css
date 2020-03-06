@@ -18,6 +18,8 @@ body {
 	display: flex;
   flex-direction: column;
 	justify-content: center;
+	align-items: center;
+	align-content: center;
 }
 
 header {
@@ -249,19 +251,23 @@ h2 {
 @media (max-aspect-ratio: 70/100) {
 	header {
 		justify-content: center;
+		align-content: center;
+		text-align: center;
+		align-items: center;
 		height: 15rem;
 		padding-left: 8vw;
 		padding-right: 8vw;
+		padding: 0;
+		margin: 0;
 	}
 
 	.heading {
 		font-size: 6.5vw;
-		line-height: 9vw;
+		line-height: 8vw;
 	}
 
 	.content {
 		height: calc(100vh - 15rem);
-		padding-top: 600px;
 	}
 
 	main {
@@ -270,8 +276,8 @@ h2 {
 
 	.container {
 		margin: 0;
-		width: 400px;
-		margin-bottom: 6vw;
+		max-width: 36vh;
+		margin-bottom: 12vw;
 	}
 
 	aside {
