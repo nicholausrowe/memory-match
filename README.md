@@ -35,6 +35,3 @@ Live Site: https://memory-match.rowe.digital
     - The number of games played is increased
     - The total number of matches are reset
     - The accuracy percentage is reset to 0%
-12. For a bonus challenge in the initial build
-    - Create the cards dynamically
-    - Shuffle the cards every time the game is reset
