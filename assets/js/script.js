@@ -30,14 +30,11 @@ function createBoard(albums) {
   }
 }
 
-
 function albumShuffle(array) {
   var currentIndex = array.length, tempVal, randomIndex;
-
   while (0 !== currentIndex) {
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -=1;
-
     tempVal = array[currentIndex];
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = tempVal;
@@ -59,7 +56,7 @@ var displayStats;
 function calculateAccuracy() {
   accuracy = matches / attempts * 100;
   if (attempts === 0) {
-      accuracy = 0;
+    accuracy = 0;
   }
 }
 
@@ -85,62 +82,51 @@ function resetBoard() {
   $('.content').removeClass('blur');
 }
 
-
 function handleCardClick(event) {
-    if (currentlyFlipped === 2){
-        return;
+  if (currentlyFlipped === 2){
+    return;
+  }
+  var clickedCard = $(event.currentTarget).find('.back');
+
+  if (firstCardClicked == null) {
+    firstCardClicked = $(event.currentTarget);
+    clickedCard.addClass('hidden');
+    currentlyFlipped += 1;
+  } else if (secondCardClicked === null && clickedCard.hasClass("hidden") === false) {
+    secondCardClicked = $(event.currentTarget);
+    clickedCard.addClass('hidden');
+    currentlyFlipped += 1;
+
+    if (secondCardClicked != null) {
+      attempts++;
     }
+    var firstCardSource = $(firstCardClicked).find('.front').attr('src');
+    var secondCardSource = $(secondCardClicked).find('.front').attr('src');
 
-    var clickedCard = $(event.currentTarget).find('.back');
+    if (firstCardSource === secondCardSource) {
+      matches++
+      displayStats();
 
+      currentlyFlipped = 0;
+      firstCardClicked = null;
+      secondCardClicked = null;
+    } else {
+      displayStats();
 
-    if (firstCardClicked == null) {
-        firstCardClicked = $(event.currentTarget);
-        clickedCard.addClass('hidden');
-        currentlyFlipped += 1;
-    } else if (secondCardClicked === null && clickedCard.hasClass("hidden") === false){
-        secondCardClicked = $(event.currentTarget);
-        clickedCard.addClass('hidden');
-        currentlyFlipped += 1;
+      var unhide = $(firstCardClicked).add(secondCardClicked).find('.back')
+      setTimeout(function () {
+        currentlyFlipped = 0;
+        (unhide).removeClass("hidden");}, 1500);
 
-        if (secondCardClicked != null) {
-            attempts++;
-        }
-
-        var firstCardSource = $(firstCardClicked).find('.front').attr('src');
-
-        var secondCardSource = $(secondCardClicked).find('.front').attr('src');
-
-        if (firstCardSource === secondCardSource) {
-            matches++
-            displayStats();
-
-            currentlyFlipped = 0;
-            firstCardClicked = null;
-            secondCardClicked = null;
-        } else {
-            console.log("NO MATCH");
-            displayStats();
-
-            var unhide = $(firstCardClicked).add(secondCardClicked).find('.back')
-            setTimeout(function () {
-                currentlyFlipped = 0;
-                (unhide).removeClass("hidden");}, 1500);
-
-            firstCardClicked = null;
-            secondCardClicked = null;
-        }
+      firstCardClicked = null;
+      secondCardClicked = null;
     }
-    if (matches === max_matches) {
-        games_played++;
-        $('.modal-shadow').toggleClass('hidden');
-
+  }
+  if (matches === max_matches) {
+      games_played++;
+      $('.modal-shadow').toggleClass('hidden');
       $('header').toggleClass('blur');
       $('.content').toggleClass('blur');
-
-
-        $('.modal-shadow').on("click", resetBoard);
-
-
-    }
+      $('.modal-shadow').on("click", resetBoard);
+  }
 }

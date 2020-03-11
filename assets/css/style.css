@@ -20,9 +20,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	align-content: center;
-
 }
-
 
 header {
 	height: 16vh;
@@ -51,7 +49,6 @@ header {
 
 main {
 	display: flex;
-
 }
 
 .container {
@@ -66,9 +63,8 @@ main {
 	padding: .3%;
 	margin-left: 6.4vw;
 	margin-bottom: 11vh;
-
-
 }
+
 .card {
 	position: relative;
 	width: calc(100% / 6);
@@ -99,7 +95,6 @@ aside {
 	position: relative;
 /* DELETE LINE BELOW? */
 	display: inline-block;
-
 	font-family: "Akzidenz-Grotesk H1", Helvetica, Arial, serif;
 	font-weight: 100;
 	font-size: 1.5vw;
@@ -109,12 +104,9 @@ aside {
 	text-transform: uppercase;
 }
 
-
 .turntable {
 	width:23.5vw;
 }
-
-
 
 .modal-shadow {
     position: fixed;
@@ -154,7 +146,6 @@ h2 {
 	filter:blur(5px);
 }
 
-
 .video {
 	width: 80%;
 	height: 80%;
@@ -164,13 +155,12 @@ h2 {
 	transform: translate(50%, -50%);
 }
 
-
-
 /* NO ASIDE */
 @media (max-aspect-ratio: 100/70) {
 	.container {
 		margin-right: 6.4vw;
 	}
+
 	aside {
 		display: none;
 	}
@@ -249,7 +239,6 @@ h2 {
 		width: 35vw;
 	}
 }
-
 
 @media (max-aspect-ratio: 70/100) {
 	header {
